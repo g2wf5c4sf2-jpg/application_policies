@@ -1,11 +1,11 @@
 # Application policies
 
-Privacy policies for published applications, served as static pages by GitHub
+Privacy policies and terms for published applications, served as static pages by GitHub
 Pages. One directory per application.
 
-| Application | Policy |
-|---|---|
-| Response Card | [response-card/](https://g2wf5c4sf2-jpg.github.io/application_policies/response-card/) |
+| Application | Privacy policy | Terms and conditions |
+|---|---|---|
+| Response Card | [response-card/](https://g2wf5c4sf2-jpg.github.io/application_policies/response-card/) | [response-card/terms.html](https://g2wf5c4sf2-jpg.github.io/application_policies/response-card/terms.html) |
 
 Each page is self-contained: no scripts, no webfonts, no analytics, and no
 request to any other host. A privacy policy that loads an asset from a third
