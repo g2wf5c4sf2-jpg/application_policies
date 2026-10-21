@@ -1,179 +1,420 @@
 <!DOCTYPE html>
 <!--
-  Terms and conditions for Response Card text messages: the SMS/MMS program
-  registered as an A2P 10DLC campaign under the brand SpunkyChicken.
+  SpunkyChicken SMS terms: the TermsAndConditions URL for the text message
+  program registered as an A2P 10DLC campaign under the brand SpunkyChicken.
+
+  Twilio error 30909 is the rejection for a call to action reviewers cannot
+  verify. Numbers are collected offline by the issuing organization, so the
+  "How you opt in" section publishes the consent statement people are shown,
+  and "Keywords" publishes the replies. Both must match what is actually shown
+  and sent; change them here when that changes.
 
   Self-contained for the same reason as the privacy policy beside it: no
-  webfont, no stylesheet, no script, no image, no external request.
+  webfont, no stylesheet, no script, no image file, no external request.
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>Terms and conditions — Response Card</title>
+<title>SMS Terms — SpunkyChicken</title>
 <style>
+  /* Layout: brand bar, title block with an at-a-glance panel, then a sticky
+     contents rail beside the document on wide screens; one column on phones. */
   :root {
-    --ink:      #1b1b1f;
-    --muted:    #55555f;
-    --ground:   #ffffff;
-    --rule:     #d8d8de;
-    --accent:   #4b3fa8;
+    --ground:  #ffffff;
+    --panel:   #f3f4f8;
+    --ink:     #1a1f2b;
+    --muted:   #596073;
+    --rule:    #e0e2ea;
+    --accent:  #24408e;
+    --yolk:    #f0a92c;
+    --yolk-bg: #fdf3df;
+    --yolk-ink:#6a4300;
+
+    --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    --body:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono:    ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   }
   @media (prefers-color-scheme: dark) {
-    :root {
-      --ink:    #e6e4ea;
-      --muted:  #a3a1ad;
-      --ground: #16161a;
-      --rule:   #33333c;
-      --accent: #b9a8ff;
+    :root:not([data-theme="light"]) {
+      --ground:  #11141b;
+      --panel:   #181c26;
+      --ink:     #e6e8ee;
+      --muted:   #9ba2b4;
+      --rule:    #282d3a;
+      --accent:  #a9bcff;
+      --yolk:    #f4b942;
+      --yolk-bg: #2a2416;
+      --yolk-ink:#f5d08a;
+      color-scheme: dark;
     }
+  }
+  :root[data-theme="dark"] {
+    --ground:  #11141b;
+    --panel:   #181c26;
+    --ink:     #e6e8ee;
+    --muted:   #9ba2b4;
+    --rule:    #282d3a;
+    --accent:  #a9bcff;
+    --yolk:    #f4b942;
+    --yolk-bg: #2a2416;
+    --yolk-ink:#f5d08a;
+    color-scheme: dark;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
   body {
     margin: 0;
     background: var(--ground);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                 "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--body);
     font-size: 17px;
-    line-height: 1.6;
-    -webkit-text-size-adjust: 100%;
+    line-height: 1.65;
   }
 
-  main {
-    max-width: 40rem;
+  .wrap {
+    max-width: 66rem;
     margin: 0 auto;
-    padding: 3rem 1.25rem 5rem;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
 
+  a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--yolk); outline-offset: 2px; border-radius: 3px; }
+
+  /* Brand bar */
+  .brand-bar { border-bottom: 1px solid var(--rule); }
+  .brand-bar .wrap {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 0.75rem 1.5rem; padding-block: 0.9rem;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    color: var(--ink); text-decoration: none;
+    font-family: var(--display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em;
+  }
+  .brand svg { width: 1.7rem; height: 1.7rem; flex: none; }
+  .brand .yolk { fill: var(--yolk); }
+  .brand .comb { fill: var(--accent); }
+  .doc-nav { display: flex; gap: 0.35rem; font-size: 0.9rem; }
+  .doc-nav a {
+    color: var(--muted); text-decoration: none; padding: 0.35rem 0.8rem;
+    border: 1px solid transparent; border-radius: 999px;
+  }
+  .doc-nav a:hover { color: var(--ink); border-color: var(--rule); }
+  .doc-nav a[aria-current="page"] { color: var(--ink); background: var(--panel); border-color: var(--rule); font-weight: 600; }
+
+  /* Title block */
+  .masthead .wrap { padding-block: 3rem 2.25rem; }
+  .eyebrow {
+    margin: 0 0 0.6rem; color: var(--muted);
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  }
   h1 {
-    font-size: 1.6rem;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    margin: 0 0 1.5rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--rule);
+    margin: 0 0 1rem; max-width: 22ch;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.02em;
+    text-wrap: balance;
   }
+  .lede { margin: 0; max-width: 40rem; font-size: 1.1rem; color: var(--ink); }
+  .updated { margin: 1rem 0 0; color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 
+  .glance {
+    margin-top: 2rem; padding: 1.25rem 1.4rem; border-radius: 14px;
+    background: var(--yolk-bg); border: 1px solid color-mix(in srgb, var(--yolk) 45%, transparent);
+  }
+  .glance h2 {
+    margin: 0 0 0.9rem; color: var(--yolk-ink);
+    font-family: var(--body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .glance dl {
+    margin: 0; display: grid; gap: 1rem 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+  .glance div { min-width: 0; }
+  .glance dt { font-weight: 700; font-size: 0.95rem; }
+  .glance dd { margin: 0.15rem 0 0; font-size: 0.92rem; color: var(--ink); line-height: 1.5; }
+
+  /* Document and contents rail */
+  .layout .wrap {
+    display: grid; gap: 2.5rem; padding-block: 1rem 4rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 60rem) {
+    .layout .wrap { grid-template-columns: 13.5rem minmax(0, 42rem); gap: 4rem; }
+    .toc { position: sticky; top: 1.5rem; align-self: start; }
+  }
+  .toc {
+    font-size: 0.9rem; border: 1px solid var(--rule); border-radius: 12px; padding: 1rem 1.1rem;
+  }
+  @media (min-width: 60rem) { .toc { border: 0; padding: 0; } }
+  .toc p {
+    margin: 0 0 0.6rem; color: var(--muted);
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+  .toc a {
+    display: block; padding: 0.25rem 0 0.25rem 0.75rem; border-left: 2px solid var(--rule);
+    color: var(--muted); text-decoration: none; line-height: 1.4;
+  }
+  .toc a:hover { color: var(--ink); border-left-color: var(--yolk); }
+
+  article { min-width: 0; }
+  section { padding-top: 0.5rem; scroll-margin-top: 1rem; }
+  section + section { margin-top: 2.25rem; padding-top: 2.25rem; border-top: 1px solid var(--rule); }
   h2 {
-    font-size: 1.05rem;
-    letter-spacing: 0.01em;
-    margin: 2.5rem 0 0.6rem;
-    color: var(--accent);
+    margin: 0 0 0.85rem;
+    font-family: var(--display); font-weight: 700; font-size: 1.55rem; line-height: 1.2; letter-spacing: -0.01em;
+    text-wrap: balance;
   }
-
+  h3 { margin: 1.6rem 0 0.4rem; font-size: 1.02rem; font-weight: 700; }
   p  { margin: 0 0 1rem; }
-  ul { margin: 0 0 1rem; padding-left: 1.15rem; }
-  li { margin-bottom: 0.5rem; }
-  a  { color: var(--accent); }
-
-  .lede { font-size: 1.05rem; }
-
-  footer {
-    margin-top: 3rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--rule);
-    color: var(--muted);
-    font-size: 0.9rem;
+  ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+  li { margin-bottom: 0.45rem; }
+  li::marker { color: var(--yolk); }
+  .tag {
+    display: inline-block; margin-left: 0.4rem; padding: 0.05rem 0.5rem; border-radius: 999px;
+    background: var(--panel); border: 1px solid var(--rule); color: var(--muted);
+    font-family: var(--body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; vertical-align: 0.3em;
   }
+  kbd {
+    font-family: var(--mono); font-size: 0.85em; font-weight: 700;
+    padding: 0.05rem 0.4rem; border-radius: 5px;
+    background: var(--panel); border: 1px solid var(--rule); border-bottom-width: 2px;
+  }
+  .clause {
+    margin: 1.25rem 0; padding: 1rem 1.2rem; border-radius: 10px;
+    background: var(--panel); border: 1px solid var(--rule);
+  }
+  .clause p:last-child { margin-bottom: 0; }
+
+  footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+  footer .wrap {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1.5rem 2.5rem;
+  }
+  footer p { margin: 0; }
 
   @media (max-width: 30rem) {
     body { font-size: 16px; }
-    main { padding-top: 2rem; }
+    .masthead .wrap { padding-block: 2rem 1.5rem; }
   }
+  /* Keyword list and consent statement (SMS terms) */
+  .keys { display: grid; gap: 0.6rem; }
+  .keys div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline; }
+  .keys kbd { justify-self: start; }
+  .keys span { font-size: 0.95rem; }
+  .fine { margin: 1rem 0 0; font-size: 0.88rem; color: var(--yolk-ink); }
+  .consent {
+    margin: 1.25rem 0; padding: 1.1rem 1.25rem; border-radius: 10px;
+    background: var(--ground); border: 1px dashed var(--muted);
+  }
+  .consent figcaption {
+    margin-bottom: 0.5rem; color: var(--muted);
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .consent p { margin: 0; font-size: 0.95rem; overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
-<main>
 
-<h1>Terms and conditions — Response Card</h1>
+<header class="brand-bar">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="SpunkyChicken privacy policy">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="18" r="11" class="yolk"/>
+        <circle cx="11.5" cy="6.5" r="3" class="comb"/>
+        <circle cx="16" cy="4.8" r="3.3" class="comb"/>
+        <circle cx="20.5" cy="6.5" r="3" class="comb"/>
+      </svg>
+      SpunkyChicken
+    </a>
+    <nav class="doc-nav" aria-label="Policies">
+      <a href="./">Privacy policy</a>
+      <a href="terms.html" aria-current="page">SMS terms</a>
+    </nav>
+  </div>
+</header>
 
-<p class="lede">These terms cover the Response Card text message program run by
-SpunkyChicken. By agreeing to receive these messages, you accept these
-terms.</p>
+<div class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">SpunkyChicken · Text message program</p>
+    <h1>SMS Terms and Conditions</h1>
+    <p class="lede">These terms cover the SpunkyChicken text message program:
+    service messages about the Secure Contact Card issued to you by your
+    organization. By agreeing to receive these messages, you accept these
+    terms.</p>
+    <p class="updated">Last updated: October 21, 2026</p>
 
-<h2>What the program sends</h2>
-<p>Response Card text messages are service messages to people who have been
-issued a Response Card contact card by their organization. They are:</p>
-<ul>
-  <li>A link to install your card, or to install an update to it.</li>
-  <li>A request to confirm that your device is with you, answered by tapping a
-      link.</li>
-  <li>A set-up code, sent as a picture message (MMS), for adding your card to a
-      tablet or other device that has no phone number.</li>
-</ul>
-<p>The program does not send marketing or promotional messages.</p>
+    <aside class="glance" aria-labelledby="glance-h">
+      <h2 id="glance-h">Keywords</h2>
+      <div class="keys">
+        <div><kbd>STOP</kbd><span>Stop all messages. You get one confirmation, then nothing.</span></div>
+        <div><kbd>HELP</kbd><span>Get help and contact details.</span></div>
+        <div><kbd>START</kbd><span>Start receiving messages again after STOP.</span></div>
+      </div>
+      <p class="fine">Message frequency varies. Message and data rates may apply.</p>
+    </aside>
+  </div>
+</div>
 
-<h2>Apple iPhone and iPad</h2>
-<p>On an iPhone, the link in your text adds your card to Apple Wallet as a pass.
-On an iPad, it installs your card in the Response Card app. After that, changes
-to your card reach your device through Apple Push Notification service, not by
-text, and are not counted as text messages under these terms.</p>
-<p>Removing the pass from Wallet, or deleting the app, stops those updates. It
-does not stop text messages: reply <strong>STOP</strong> for that. Apple Wallet,
-iCloud and Apple Push Notification service are provided by Apple under Apple's
-own terms. See the <a href="./">Response Card privacy policy</a> for what Wallet
-and the app send.</p>
+<main class="layout">
+  <div class="wrap">
 
-<h2>How you opt in</h2>
-<p>You receive these messages only after you give your mobile number to
-SpunkyChicken, or to the organization that issued your card, and agree to
-receive Response Card text messages at that number. Agreeing is not a condition
-of any purchase.</p>
+    <nav class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#program">The program</a></li>
+        <li><a href="#optin">How you opt in</a></li>
+        <li><a href="#frequency">Message frequency</a></li>
+        <li><a href="#cost">Cost</a></li>
+        <li><a href="#stop">How to stop</a></li>
+        <li><a href="#help">How to get help</a></li>
+        <li><a href="#apple">iPhone and iPad</a></li>
+        <li><a href="#delivery">Delivery</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
 
-<h2>Message frequency</h2>
-<p>Message frequency varies. Messages are sent only when a card is issued to
-you, when your card changes, or when your device is checked, and are typically
-fewer than five a month.</p>
+    <article>
 
-<h2>Cost</h2>
-<p>Message and data rates may apply. Any charges are from your mobile carrier,
-under your plan. SpunkyChicken does not charge for these messages.</p>
+      <section id="program" aria-labelledby="program-h">
+        <h2 id="program-h">The program</h2>
+        <p>SpunkyChicken sends service text messages, on behalf of your
+        organization, to people who have been issued a Secure Contact Card.
+        You may receive:</p>
+        <ul>
+          <li>a link to add your card, or an update to it;</li>
+          <li>a request to confirm that your device is with you, answered by
+              tapping a link;</li>
+          <li>a set-up code, sent as a picture message (MMS), for adding your
+              card to a tablet or other device that has no phone number.</li>
+        </ul>
+        <p>The program does not send marketing or promotional messages.</p>
+      </section>
 
-<h2>How to stop</h2>
-<p>Reply <strong>STOP</strong> to any message to cancel. You will receive one
-message confirming that you have been unsubscribed, and no further messages
-after that. <strong>CANCEL</strong>, <strong>END</strong>,
-<strong>QUIT</strong>, <strong>UNSUBSCRIBE</strong> and
-<strong>STOPALL</strong> work the same way.</p>
-<p>If you stop, card links and set-up codes can no longer reach you by text.
-Contact the organization that issued your card to receive them another way.</p>
-<p>To start receiving messages again, reply <strong>START</strong>.</p>
+      <section id="optin" aria-labelledby="optin-h">
+        <h2 id="optin-h">How you opt in</h2>
+        <p>You receive these messages only after you give your mobile number to
+        the organization issuing your card, or to SpunkyChicken, and agree to
+        receive SpunkyChicken text messages at that number. When your number is
+        collected, you are shown this statement:</p>
+        <figure class="consent">
+          <figcaption>Consent statement</figcaption>
+          <p>By providing your mobile number, you agree to receive text messages
+          from SpunkyChicken about your Secure Contact Card, including card
+          links, device checks and set-up codes. Message frequency varies.
+          Message and data rates may apply. Reply STOP to opt out, HELP for
+          help. Consent is not a condition of any purchase. SMS terms and
+          privacy policy: g2wf5c4sf2-jpg.github.io/application_policies/response-card</p>
+        </figure>
+        <p>Agreeing is not a condition of any purchase. You must be the account
+        holder for the mobile number, or have the account holder's
+        permission.</p>
+      </section>
 
-<h2>How to get help</h2>
-<p>Reply <strong>HELP</strong> to any message for help, or contact the
-organization that issued your card.</p>
+      <section id="frequency" aria-labelledby="frequency-h">
+        <h2 id="frequency-h">Message frequency</h2>
+        <p>Message frequency varies. Messages are sent only when a card is
+        issued to you, when your card changes, or when your device is checked,
+        and are typically fewer than five a month.</p>
+      </section>
 
-<h2>Delivery</h2>
-<p>Mobile carriers are not liable for delayed or undelivered messages. Delivery
-depends on your carrier and your device, and is not guaranteed.</p>
+      <section id="cost" aria-labelledby="cost-h">
+        <h2 id="cost-h">Cost</h2>
+        <p>Message and data rates may apply. Any charges are from your mobile
+        carrier, under your plan. SpunkyChicken does not charge for these
+        messages.</p>
+      </section>
 
-<h2>Privacy</h2>
-<p>Your mobile number is used only to send the messages described here. Mobile
-numbers and opt-in consent are not shared with, sold to or rented to third
-parties or affiliates for marketing or promotional purposes. Messages are
-carried by our messaging provider solely to deliver them, and each message's
-record is deleted from that provider once it has been delivered.</p>
-<p>See the <a href="./">Response Card privacy policy</a> for how the app and
-the service handle your data.</p>
+      <section id="stop" aria-labelledby="stop-h">
+        <h2 id="stop-h">How to stop</h2>
+        <p>Reply <kbd>STOP</kbd> to any message to cancel. You will receive one
+        message confirming that you have been unsubscribed, and no further
+        messages after that. <kbd>CANCEL</kbd>, <kbd>END</kbd>,
+        <kbd>QUIT</kbd>, <kbd>UNSUBSCRIBE</kbd> and <kbd>STOPALL</kbd> work the
+        same way.</p>
+        <p>If you stop, card links and set-up codes can no longer reach you by
+        text. Contact the organization that issued your card to receive them
+        another way. To start receiving messages again, reply
+        <kbd>START</kbd>.</p>
+      </section>
 
-<h2>Changes to these terms</h2>
-<p>These terms may be updated. The date below shows when they last changed.
-Continuing to receive messages after a change means you accept the updated
-terms; you can reply STOP at any time.</p>
+      <section id="help" aria-labelledby="help-h">
+        <h2 id="help-h">How to get help</h2>
+        <p>Reply <kbd>HELP</kbd> to any message for help, or contact the
+        organization that issued your card.</p>
+      </section>
 
-<h2>Contact</h2>
-<p>The Response Card text message program is run by SpunkyChicken. Reply
-<strong>HELP</strong> to any message, or contact the organization that issued
-your card.</p>
+      <section id="apple" aria-labelledby="apple-h">
+        <h2 id="apple-h">iPhone and iPad</h2>
+        <p>On an iPhone, the link in your text adds your card to Apple Wallet
+        as a pass. On an iPad, it installs your card in the Secure Contact Card
+        app. After that, changes to your card reach your device through Apple
+        Push Notification service, not by text, and are not text messages under
+        these terms.</p>
+        <p>Removing the pass from Wallet, or deleting the app, stops those
+        updates. It does not stop text messages; reply <kbd>STOP</kbd> for
+        that. Apple Wallet, iCloud and Apple Push Notification service are
+        provided by Apple under Apple's own terms. The
+        <a href="./#wallet">privacy policy</a> describes what Wallet and the
+        app send.</p>
+      </section>
+
+      <section id="delivery" aria-labelledby="delivery-h">
+        <h2 id="delivery-h">Delivery</h2>
+        <p>Carriers are not liable for delayed or undelivered messages.
+        Delivery depends on your carrier and your device, and is not
+        guaranteed.</p>
+      </section>
+
+      <section id="privacy" aria-labelledby="privacy-h">
+        <h2 id="privacy-h">Privacy</h2>
+        <p>Your mobile number is used only to send the messages described
+        here.</p>
+        <div class="clause">
+          <p>No mobile information will be shared with third parties or
+          affiliates for marketing or promotional purposes. Information sharing
+          to subcontractors in support services, such as customer service, is
+          permitted. All the above categories exclude text messaging
+          originator opt-in data and consent; this information will not be
+          shared with any third parties.</p>
+        </div>
+        <p>Messages are carried by our messaging provider, Twilio, solely to
+        deliver them. See the <a href="./">SpunkyChicken privacy policy</a> for
+        everything collected and how it is used.</p>
+      </section>
+
+      <section id="changes" aria-labelledby="changes-h">
+        <h2 id="changes-h">Changes to these terms</h2>
+        <p>These terms may be updated. The date at the top shows when they
+        last changed. You can reply <kbd>STOP</kbd> at any time.</p>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h">Contact</h2>
+        <p>The text message program is run by SpunkyChicken. Reply
+        <kbd>HELP</kbd> to any message, or contact the organization that issued
+        your card.</p>
+      </section>
+
+    </article>
+  </div>
+</main>
 
 <footer>
-<p>Last updated: 2026-10-21</p>
+  <div class="wrap">
+    <p>© 2026 SpunkyChicken</p>
+    <p><a href="./">Privacy policy</a> · <a href="terms.html">SMS terms</a></p>
+  </div>
 </footer>
 
-</main>
 </body>
 </html>
