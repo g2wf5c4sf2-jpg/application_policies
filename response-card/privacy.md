@@ -41,14 +41,25 @@ issued it. The [SpunkyChicken SMS terms](terms.md) cover the program in full.
 
 ### What we collect
 
-Your mobile phone number, and a record that you agreed to receive SpunkyChicken text messages at
-that number. Nothing else about you is collected for the text message program.
+Your mobile phone number, and a record of your verbal consent to receive SpunkyChicken text messages
+at that number. Nothing else about you is collected for the text message program.
 
 ### How you opt in
 
-You give your mobile number to the organization issuing your card, or to SpunkyChicken, and agree
-to receive SpunkyChicken text messages about your card at that number. Messages are sent only after
-you agree. Agreeing is not a condition of any purchase.
+You opt in by verbal consent, at your own request. You ask SpunkyChicken to send your Secure
+Contact Card to your phone, say your mobile number yourself, and say that you agree to receive
+SpunkyChicken text messages about your card at that number.
+
+There is no web page, form, app screen, keyword or other technical means of opting in. Your verbal
+request is the only way to opt in.
+
+When you make the request, you are told that the messages come from SpunkyChicken and are about
+your card, that message frequency varies, that message and data rates may apply, that you can reply
+`STOP` to opt out or `HELP` for help, and where to find the [SMS terms](terms.md) and this policy.
+
+The messages are sent by SpunkyChicken, under the SpunkyChicken name, only to the number you gave
+directly during that verbal request. Numbers are not bought, rented or taken from any list.
+Messages are sent only after you agree. Agreeing is not a condition of any purchase.
 
 ### How we use your number
 
@@ -64,7 +75,7 @@ five a month. Message and data rates may apply.
 ### Opting out
 
 Reply `STOP` to any message to stop receiving them. You will get one message confirming it, and
-nothing after that. Reply `HELP` for help.
+nothing after that. Reply `HELP` for help, or email support@spunkychicken.org.
 
 ### Who carries the messages
 
@@ -182,8 +193,8 @@ been altered will not be accepted.
 - **Stop text messages:** reply `STOP` to any SpunkyChicken text message.
 - **Remove the card from a device:** uninstall the app, or remove the pass from Wallet. Either
   removes everything stored on that device and stops its updates.
-- **Withdraw the card or remove your number:** contact the organization that issued your card, or
-  reply `HELP` to any SpunkyChicken text message.
+- **Withdraw the card or remove your number:** email support@spunkychicken.org, contact the
+  organization that issued your card, or reply `HELP` to any SpunkyChicken text message.
 
 ## Children
 
@@ -197,8 +208,9 @@ If this policy changes, this page is updated and the date at the top changes wit
 ## Contact
 
 Secure Contact Card and its text message program are provided by SpunkyChicken. For questions about
-this policy, reply `HELP` to any SpunkyChicken text message, or contact the organization that issued
-your card.
+this policy, email SpunkyChicken support at
+[support@spunkychicken.org](mailto:support@spunkychicken.org), reply `HELP` to any SpunkyChicken
+text message, or contact the organization that issued your card.
 
 ---
 

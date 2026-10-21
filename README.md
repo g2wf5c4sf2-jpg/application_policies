@@ -1,17 +1,8 @@
 # Application policies
 
-Privacy policies and terms for published applications, served as static pages by GitHub
-Pages. One directory per application.
+Privacy policies and terms for published applications, kept as Markdown. One directory per
+application.
 
 | Application | Privacy policy | Terms and conditions |
 |---|---|---|
-| Response Card | [response-card/](https://g2wf5c4sf2-jpg.github.io/application_policies/response-card/) | [response-card/terms.html](https://g2wf5c4sf2-jpg.github.io/application_policies/response-card/terms.html) |
-
-Each page is self-contained: no scripts, no webfonts, no analytics, and no
-request to any other host. A privacy policy that loads an asset from a third
-party hands that third party the address of everyone who reads it, which is not
-a thing a privacy policy should do.
-
-`.nojekyll` is deliberate. It tells Pages to serve the committed bytes rather
-than run a Jekyll build, so a page cannot pick up a theme or a remote reference
-that was never reviewed here.
+| Response Card | [response-card/privacy.md](response-card/privacy.md) | [response-card/terms.md](response-card/terms.md) |

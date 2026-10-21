@@ -15,7 +15,7 @@ terms.
 | Keyword | What it does |
 |---|---|
 | `STOP` | Stop all messages. You get one confirmation, then nothing. |
-| `HELP` | Get help and contact details. |
+| `HELP` | Get help and contact details, or email support@spunkychicken.org. |
 | `START` | Start receiving messages again after STOP. |
 
 Message frequency varies. Message and data rates may apply.
@@ -48,20 +48,27 @@ The program does not send marketing or promotional messages.
 
 ## How you opt in
 
-You receive these messages only after you give your mobile number to the organization issuing your
-card, or to SpunkyChicken, and agree to receive SpunkyChicken text messages at that number. When
-your number is collected, you are shown this statement:
+You opt in by verbal consent, at your own request. You ask SpunkyChicken to send your Secure
+Contact Card to your phone, say your mobile number yourself, and say that you agree to receive
+SpunkyChicken text messages about your card at that number.
+
+There is no web page, form, app screen, keyword or other technical means of opting in. Your verbal
+request is the only way to opt in.
+
+When you make the request, you are told:
 
 > **Consent statement**
 >
-> By providing your mobile number, you agree to receive text messages from SpunkyChicken about your
+> By giving your mobile number, you agree to receive text messages from SpunkyChicken about your
 > Secure Contact Card, including card links, device checks and set-up codes. Message frequency
 > varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a
 > condition of any purchase. SMS terms and privacy policy:
-> g2wf5c4sf2-jpg.github.io/application_policies/response-card
+> github.com/g2wf5c4sf2-jpg/application_policies/tree/main/response-card
 
-Agreeing is not a condition of any purchase. You must be the account holder for the mobile number,
-or have the account holder's permission.
+The messages are sent by SpunkyChicken, under the SpunkyChicken name, only to the number you gave
+directly during that verbal request. Numbers are not bought, rented or taken from any list.
+Messages are sent only after you agree. Agreeing is not a condition of any purchase. You must be
+the account holder for the mobile number, or have the account holder's permission.
 
 ## Message frequency
 
@@ -85,7 +92,8 @@ that issued your card to receive them another way. To start receiving messages a
 
 ## How to get help
 
-Reply `HELP` to any message for help, or contact the organization that issued your card.
+Reply `HELP` to any message for help, email support@spunkychicken.org, or contact the organization
+that issued your card.
 
 ## iPhone and iPad
 
@@ -123,8 +131,9 @@ at any time.
 
 ## Contact
 
-The text message program is run by SpunkyChicken. Reply `HELP` to any message, or contact the
-organization that issued your card.
+The text message program is run by SpunkyChicken. For support, email
+[support@spunkychicken.org](mailto:support@spunkychicken.org), reply `HELP` to any message, or
+contact the organization that issued your card.
 
 ---
 
