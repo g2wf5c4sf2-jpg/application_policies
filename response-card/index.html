@@ -121,7 +121,7 @@ Response Card text messages (SMS and MMS) that deliver your card. The
 <a href="terms.html">Response Card SMS terms and conditions</a> cover the text
 messages in more detail.</p>
 
-<h2>What the app stores on your device</h2>
+<h2>Android: what the app stores on your device</h2>
 <ul>
   <li>The contact card you were issued, encrypted. It is unlocked with your
       fingerprint, face or device PIN, and cannot be read without one.</li>
@@ -138,7 +138,7 @@ is locked.</p>
 <p>This app needs a screen lock to work. Without one there is nowhere on the
 phone to keep a card safely, and it will say so rather than store it anyway.</p>
 
-<h2>What the app sends</h2>
+<h2>Android: what the app sends</h2>
 <ul>
   <li>A notification token from Google, so your card can be told when it
       changes.</li>
@@ -154,6 +154,46 @@ deleted after ninety days.</p>
 <p>They exist so that a card being used on more phones than it was issued to can
 be noticed. They are not used to work out where you are, they are not combined
 with anything else, and they go nowhere else.</p>
+
+<h2>Apple iPhone and iPad</h2>
+<p><strong>On iPhone, your card is an Apple Wallet pass.</strong> There is no
+app to install. The card is a pass signed by the organization that issued it,
+and Apple Wallet keeps it on your iPhone. It is protected by your iPhone's own
+security: its passcode, Face ID or Touch ID. If your Wallet passes sync through
+iCloud, Apple keeps the pass on your other devices signed in to the same Apple
+Account, under Apple's own privacy policy.</p>
+<p>When you add the pass, Wallet registers it with the service operated by the
+organization that issued your card, so the card can be kept up to date. Wallet
+sends:</p>
+<ul>
+  <li>An identifier Wallet makes up for your device, and a push token from
+      Apple Push Notification service (APNs).</li>
+  <li>The card's serial number and its credential, when it asks for an
+      update.</li>
+  <li>Wallet's own error messages about the pass, if something goes wrong
+      fetching it.</li>
+</ul>
+<p>When your card changes, the service sends a push through APNs to that token.
+For a Wallet pass the push carries nothing: no card contents, no name, no
+notice. It only tells Wallet to fetch the new card from the service over
+HTTPS. Wallet may then show the short headline of a notice from the
+organization on your lock screen, the same line described under Notifications
+below.</p>
+<p>Removing the pass from Wallet tells the service to stop sending updates to
+that device. The service records each request the same way as for any other
+phone (see <em>What the service records</em>). It also keeps the time and
+country of the card's first device registration with the card's record, so a
+card used on more devices than it was issued to can be noticed.</p>
+<p><strong>On iPad, your card is held in the Response Card app.</strong> An iPad
+cannot hold a Wallet pass. The app keeps your card encrypted with a key in the
+iPad's Secure Enclave. It opens only with Face ID, Touch ID or your passcode,
+and it cannot be copied off the iPad or read while the iPad is locked. The app
+sends an APNs device token and its update credential to the same service, and
+nothing else.</p>
+<p>When the organization posts a notice, the push sent to the iPad app through
+APNs carries the short headline of that notice, signed by the organization. The
+app checks that signature before it shows anything. Apple's service carries
+that headline. Nothing else about your card goes through Apple.</p>
 
 <h2>Text messages</h2>
 <p><strong>What we collect.</strong> To send you Response Card text messages we
@@ -172,8 +212,7 @@ varies, typically fewer than five a month. Message and data rates may
 apply.</p>
 <p><strong>Opting out.</strong> Reply <strong>STOP</strong> to any message to
 stop receiving them; you will get one message confirming it. Reply
-<strong>HELP</strong> for help, or email
-<a href="mailto:richb@digexh.com">richb@digexh.com</a>.</p>
+<strong>HELP</strong> for help.</p>
 <p><strong>Sharing.</strong> No mobile information will be shared with third
 parties or affiliates for marketing or promotional purposes. Information
 sharing to subcontractors in support services, such as customer service, is
@@ -191,13 +230,13 @@ from Twilio once it has been delivered or has failed.</p>
       program described above, never by the app.</li>
   <li>It does not track you, profile you, or show advertising.</li>
   <li>Nothing is sold. Nothing is shared with third parties except the
-      service providers named in this policy (Google for notifications,
-      Twilio for text messages), and only to deliver what is described
-      here.</li>
+      service providers named in this policy (Google and Apple for
+      notifications, Apple for Wallet, Twilio for text messages), and only to
+      deliver what is described here.</li>
 </ul>
 
 <h2>Notifications</h2>
-<p>Delivered through Google's Firebase Cloud Messaging, which receives a token
+<p>On Android, notifications are delivered through Google's Firebase Cloud Messaging, which receives a token
 identifying your installation in order to route the message.</p>
 <p>When the organization posts a notice, the short headline of that notice is
 sent this way so your phone can show it without being unlocked. Google's service
@@ -207,15 +246,16 @@ it is the same line your lock screen shows.</p>
 and your login stay encrypted on your device and are never sent to Google.</p>
 
 <h2>Removing your data</h2>
-<p>Uninstalling the app removes everything it stored on the device. To have the
-card itself withdrawn, or your mobile number removed from the text message
-program, contact the organization that issued it or email
-<a href="mailto:richb@digexh.com">richb@digexh.com</a>. Replying STOP also ends
-all text messages.</p>
+<p>Uninstalling the app removes everything it stored on the device. On iPhone,
+removing the pass from Wallet deletes it from the iPhone and stops its updates.
+To have the card itself withdrawn, or your mobile number removed from the text
+message program, contact the organization that issued it. Replying STOP also
+ends all text messages.</p>
 
 <h2>Contact</h2>
-<p>SpunkyChicken<br>
-<a href="mailto:richb@digexh.com">richb@digexh.com</a></p>
+<p>Response Card is operated by SpunkyChicken. For questions about this
+policy, contact the organization that issued your card, or reply
+<strong>HELP</strong> to any Response Card text message.</p>
 
 <footer>
 <p>Last updated: 2026-10-21</p>
