@@ -6,7 +6,7 @@ SpunkyChicken provides Secure Contact Card: a contact card issued to you by your
 delivered by text message and kept on your phone or tablet. There are no accounts, no sign-up and
 no advertising. This policy explains what is collected, why, and who handles it.
 
-**Last updated: October 21, 2026**
+**Last updated: November 9, 2026**
 
 [Privacy policy](privacy.md) · [SMS terms](terms.md)
 
@@ -14,7 +14,8 @@ no advertising. This policy explains what is collected, why, and who handles it.
 
 - **Never sold or shared for marketing.** Your mobile number and your consent to receive texts are
   not shared with third parties or affiliates for marketing or promotional purposes.
-- **Service texts only.** Card links, device checks and set-up codes. No marketing messages.
+- **Service texts only.** Card links, device checks, set-up codes and messages about your card or
+  device. No marketing messages.
 - **Frequency and cost.** Message frequency varies, typically fewer than five a month. Message and
   data rates may apply.
 - **Opt out any time.** Reply `STOP` to any text to stop. Reply `HELP` for help.
@@ -67,7 +68,8 @@ Only to send the service messages you agreed to:
 
 - a link to add your card, or an update to it;
 - a request to confirm that your device is still with you;
-- a set-up code, sent as a picture message, for adding your card to a tablet.
+- a set-up code, sent as a picture message, for adding your card to a tablet;
+- a message from the organization that issued your card, about your card or your device.
 
 We do not send marketing or promotional messages. Message frequency varies, typically fewer than
 five a month. Message and data rates may apply.
@@ -79,9 +81,9 @@ nothing after that. Reply `HELP` for help, or email support@spunkychicken.org.
 
 ### Who carries the messages
 
-Messages are carried by our messaging provider, Twilio, solely to deliver them. Twilio receives
-your number and the content of each message for that purpose. Each message's record, including its
-text and any picture, is deleted from Twilio once it has been delivered or has failed.
+Messages are carried by our messaging provider, Telnyx, solely to deliver them. Telnyx receives
+your number and the content of each message for that purpose. Telnyx keeps the text of each message
+for up to ten days, and its records of the message under its own retention.
 
 ## Apple Wallet card (iPhone)
 
@@ -164,16 +166,20 @@ along with what was asked for and when. Those records are deleted after ninety d
 They exist so that a card used on more devices than it was issued to can be noticed. They are not
 used to work out where you are, they are not combined with anything else, and they go nowhere else.
 
+When a text is sent, the service keeps its delivery status for up to seven days. A reply to a text
+is kept, encrypted, for up to seven days or until it is collected, whichever comes first.
+
 ## Sharing
 
 We do not sell your information, and we do not track you, profile you or show advertising. The app
-does not collect your name, email address, phone number or contacts. Your phone number is held only
-for the text message program, never by the app.
+does not collect your name, email address, phone number or contacts. The service handles your phone
+number to send a text and to pass on a reply, and keeps no list of numbers. The app never holds your
+number.
 
 Information is handled only by the service providers below, and only to deliver what this policy
 describes:
 
-- **Twilio**: delivers text and picture messages.
+- **Telnyx**: delivers text and picture messages.
 - **Apple**: Apple Wallet, iCloud sync of Wallet passes, and Apple Push Notification service.
 - **Google**: Firebase Cloud Messaging on Android.
 

@@ -6,7 +6,7 @@ These terms cover the SpunkyChicken text message program: service messages about
 Card issued to you by your organization. By agreeing to receive these messages, you accept these
 terms.
 
-**Last updated: October 21, 2026**
+**Last updated: November 9, 2026**
 
 [Privacy policy](privacy.md) · [SMS terms](terms.md)
 
@@ -42,7 +42,8 @@ issued a Secure Contact Card. You may receive:
 - a link to add your card, or an update to it;
 - a request to confirm that your device is with you, answered by tapping a link;
 - a set-up code, sent as a picture message (MMS), for adding your card to a tablet or other device
-  that has no phone number.
+  that has no phone number;
+- a message from the organization that issued your card, about your card or your device.
 
 The program does not send marketing or promotional messages.
 
@@ -73,7 +74,8 @@ the account holder for the mobile number, or have the account holder's permissio
 ## Message frequency
 
 Message frequency varies. Messages are sent only when a card is issued to you, when your card
-changes, or when your device is checked, and are typically fewer than five a month.
+changes, when your device is checked, or when your organization has something to tell you about
+your card or device, and are typically fewer than five a month.
 
 ## Cost
 
@@ -121,7 +123,7 @@ Your mobile number is used only to send the messages described here.
 > service, is permitted. All the above categories exclude text messaging originator opt-in data and
 > consent; this information will not be shared with any third parties.
 
-Messages are carried by our messaging provider, Twilio, solely to deliver them. See the
+Messages are carried by our messaging provider, Telnyx, solely to deliver them. See the
 [SpunkyChicken privacy policy](privacy.md) for everything collected and how it is used.
 
 ## Changes to these terms
